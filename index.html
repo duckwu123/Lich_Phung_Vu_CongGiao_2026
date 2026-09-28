@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lịch Phụng Vụ Công Giáo 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600&family=Noto+Serif:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f7f3ea;--card:#fffdf8;--ink:#2a2320;--mut:#7a6f66;--line:#e2dacb;--sel:#2a2320;
+--g:#3f7d4e;--p:#6b3f8f;--w:#e9dfc0;--r:#b3261e;--ro:#e08fab}
+:root[data-theme="dark"]{--bg:#1c1917;--card:#26221f;--ink:#efe8dc;--mut:#a39a8e;--line:#3a3430;--sel:#efe8dc;--w:#cbbf96}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1917;--card:#26221f;--ink:#efe8dc;--mut:#a39a8e;--line:#3a3430;--sel:#efe8dc;--w:#cbbf96}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.55}
+h1,h2,h3,.sea summary b{font-family:"Noto Serif",Georgia,"Times New Roman",serif;line-height:1.35}
+main{max-width:760px;margin:0 auto;padding:20px 14px 40px}
+h1{font-size:1.7rem;margin:0 0 2px;font-weight:600}
+.sub{color:var(--mut);margin:0 0 16px;font-size:.95rem}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px}
+.tabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 11px;border-radius:8px;font:inherit;font-size:.9rem;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--sel);color:var(--bg);border-color:var(--sel)}
+.month{display:flex;justify-content:space-between;align-items:baseline;margin:10px 2px 6px}
+.month h2{margin:0;font-size:1.25rem;font-weight:600}
+.month span{color:var(--mut);font-size:.85rem}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dn{text-align:center;font-size:.8rem;color:var(--mut);padding:2px 0}
+.dn:first-child{color:var(--r)}
+.day{position:relative;min-height:62px;border:1px solid var(--line);border-bottom:5px solid var(--c);background:var(--card);color:var(--ink);border-radius:6px;padding:3px 4px;text-align:left;font:inherit;cursor:pointer;overflow:hidden}
+.day.empty{visibility:hidden}
+.day b{font-size:.95rem;font-weight:600}
+.day.sun b{color:var(--r)}
+.day small{display:block;font-size:.68rem;line-height:1.28;color:var(--mut);margin-top:2px;max-height:2.7em;overflow:hidden}
+.day.big{background:color-mix(in srgb,var(--c) 14%,var(--card))}
+.day.today{outline:2px dashed var(--ink);outline-offset:-2px}
+.day[aria-pressed=true]{outline:3px solid var(--ink);outline-offset:-2px}
+.detail{margin-top:14px;padding:16px;border:1px solid var(--line);border-left:8px solid var(--c);border-radius:8px;background:var(--card)}
+.detail h3{margin:0 0 4px;font-size:1.2rem}
+.detail p{margin:2px 0;font-size:.95rem}
+.detail .d{color:var(--mut)}
+.chip{display:inline-block;width:12px;height:12px;border-radius:50%;background:var(--c);border:1px solid var(--line);vertical-align:-1px;margin-right:6px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 2px;font-size:.85rem;color:var(--mut)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:5px;vertical-align:-2px;border:1px solid var(--line)}
+h2.k{font-size:1.1rem;margin:22px 2px 8px}
+.key{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.key button{border:1px solid var(--line);border-left:5px solid var(--c);background:var(--card);color:var(--ink);text-align:left;padding:7px 9px;border-radius:6px;font:inherit;font-size:.88rem;cursor:pointer}
+.key button span{display:block;color:var(--mut);font-size:.78rem}
+@media(max-width:460px){.key{grid-template-columns:1fr}.day{min-height:52px}.day small{display:none}}
+.seg{display:flex;gap:6px;margin:0 0 10px}.seg button{flex:1;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px;border-radius:8px;font:inherit;cursor:pointer}.seg button[aria-pressed=true]{background:var(--sel);color:var(--bg)}
+.rem{margin:0 0 8px}.rem .k{margin-top:6px}.opts{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin-bottom:8px;font-size:.88rem}.opts select,.opts button{font:inherit;padding:3px 8px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:6px}.opts button{cursor:pointer}
+.nt{font-size:.78rem}.detail a{color:inherit}
+.sea{border:1px solid var(--line);border-left:8px solid var(--c);border-radius:8px;background:var(--card);margin-bottom:8px;padding:8px 12px}.sea summary{cursor:pointer}.sea summary span{color:var(--mut);font-size:.85rem;margin-left:6px}.sea .key{margin-top:8px}
+button:focus-visible{outline:3px solid #3b82f6;outline-offset:1px}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#6b3f8f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lịch Phụng Vụ">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+</head>
+<body>
+<main>
+<h1>Lịch Phụng Vụ Công Giáo 2026</h1>
+<p class="sub">Chúa nhật: Năm A (đến 28/11), Năm B từ Mùa Vọng 29/11 · Ngày thường: Năm II</p>
+<div class="seg"><button data-v="m">Theo tháng</button><button data-v="s">Theo mùa</button></div>
+<section class="rem" id="rem"></section>
+<div id="sv" hidden></div>
+<div id="mv">
+<div class="tabs" id="tabs"></div>
+<div class="month"><h2 id="mt"></h2><span id="ms"></span></div>
+<div class="grid" id="grid"></div>
+</div>
+<div class="detail" id="detail"></div>
+<div class="legend">
+<span><i style="background:var(--g)"></i>Xanh: Thường niên</span>
+<span><i style="background:var(--p)"></i>Tím: Vọng, Chay</span>
+<span><i style="background:var(--w)"></i>Trắng: Giáng Sinh, Phục Sinh, lễ Chúa, Đức Mẹ, các thánh</span>
+<span><i style="background:var(--r)"></i>Đỏ: Hiện Xuống, Tử đạo, Thương khó</span>
+<span><i style="background:var(--ro)"></i>Hồng: CN Laetare, Gaudete</span>
+</div>
+<h2 class="k">Các mốc chính trong năm</h2>
+<div class="key" id="key"></div>
+<p class="d nt">Đối chiếu với lịch phụng vụ Việt Nam (GCatholic, bản Thăng Thiên dời sang Chúa nhật) và thông báo của Ủy ban Phụng tự HĐGMVN. Lịch từng giáo phận có thể khác đôi chút.</p>
+</main>
+<script>
+const Y=2026,D=864e5,S=(m,d)=>new Date(Y,m-1,d).getTime();
+const DOW=['Chúa nhật','Thứ hai','Thứ ba','Thứ tư','Thứ năm','Thứ sáu','Thứ bảy'];
+const CN={g:'Xanh',p:'Tím',w:'Trắng',r:'Đỏ',ro:'Hồng'};
+const CV={g:'var(--g)',p:'var(--p)',w:'var(--w)',r:'var(--r)',ro:'var(--ro)'};
+// [tên, bậc (L=lễ trọng, K=lễ kính, N=lễ nhớ), màu]
+const F={
+'1-1':['Đức Maria, Mẹ Thiên Chúa','L','w'],'1-4':['Chúa Hiển Linh','L','w'],'1-11':['Chúa Giêsu chịu phép Rửa','K','w'],
+'2-2':['Dâng Chúa Giêsu vào đền thánh','K','w'],'2-18':['Thứ Tư Lễ Tro, khởi đầu Mùa Chay (trùng mùng 2 Tết)','L','p'],
+'3-15':['Chúa nhật IV Mùa Chay (Laetare)','K','ro'],'3-19':['Thánh Giuse, bạn trăm năm Đức Mẹ','L','w'],
+'3-25':['Lễ Truyền Tin','L','w'],'3-29':['Chúa nhật Lễ Lá, Cuộc Thương Khó','L','r'],
+'4-2':['Thứ Năm Tuần Thánh, Tiệc Ly','L','w'],'4-3':['Thứ Sáu Tuần Thánh, Cuộc Thương Khó','L','r'],
+'4-4':['Thứ Bảy Tuần Thánh, Canh thức Vượt Qua','L','w'],'4-5':['Chúa nhật Phục Sinh','L','w'],
+'5-17':['Chúa Thăng Thiên (tại Việt Nam dời sang Chúa nhật)','L','w'],'5-24':['Chúa nhật Hiện Xuống','L','r'],
+'5-31':['Lễ Chúa Ba Ngôi','L','w'],'6-7':['Mình và Máu Thánh Chúa Kitô (dời sang Chúa nhật)','L','w'],
+'6-12':['Thánh Tâm Chúa Giêsu','L','w'],'6-13':['Trái Tim Vô Nhiễm Đức Mẹ','N','w'],
+'6-24':['Sinh nhật thánh Gioan Tẩy Giả','L','w'],'6-29':['Thánh Phêrô và Phaolô, Tông đồ','L','r'],
+'8-6':['Chúa Hiển Dung','K','w'],'8-15':['Đức Mẹ Hồn Xác Lên Trời','L','w'],'9-8':['Sinh nhật Đức Mẹ','K','w'],
+'9-14':['Suy tôn Thánh Giá','K','r'],'10-4':['Đức Mẹ Mân Côi (lễ trọng tại Việt Nam)','L','w'],'11-1':['Các Thánh Nam Nữ','L','w'],
+'11-2':['Cầu cho các tín hữu đã qua đời','K','p'],'11-22':['Chúa Giêsu Kitô, Vua vũ trụ','L','w'],
+'11-15':['Các Thánh Tử đạo Việt Nam (thánh Anrê Dũng Lạc và các bạn)','L','r'],'11-29':['Chúa nhật I Mùa Vọng, khởi đầu năm phụng vụ B','L','p'],
+'12-8':['Đức Mẹ Vô Nhiễm Nguyên Tội','L','w'],'12-13':['Chúa nhật III Mùa Vọng (Gaudete)','K','ro'],
+'12-25':['Lễ Giáng Sinh','L','w'],'12-26':['Thánh Stêphanô, tử đạo tiên khởi','K','r'],'12-27':['Thánh Gia Thất','K','w']};
+F['2-17']=['Tết Nguyên Đán Bính Ngọ','V','g'];F['2-19']=['Thánh hoá công ăn việc làm (mùng 3 Tết)','V','p'];F['2-20']=['Cử hành Lễ Tro, ăn chay kiêng thịt tại Việt Nam (mùng 4 Tết)','K','p'];F['9-2']=['Ngày Quốc khánh','V','g'];
+const G={};`1-2|Thánh Basiliô Cả và Grêgôriô Nazianzênô, giám mục|N
+1-17|Thánh Antôn, viện phụ|N
+1-21|Thánh Anê, trinh nữ tử đạo|N|r
+1-24|Thánh Phanxicô Salê, giám mục|N
+1-26|Thánh Timôthê và Titô, giám mục|N
+1-28|Thánh Tôma Aquinô, linh mục|N
+1-31|Thánh Gioan Bosco, linh mục|N
+2-5|Thánh Agatha, trinh nữ tử đạo|N|r
+2-6|Thánh Phaolô Miki và các bạn tử đạo|N|r
+2-10|Thánh Scholastica, trinh nữ|N
+2-14|Thánh Cyrillô và Mêthôđiô|N
+2-23|Thánh Polycarpô, giám mục tử đạo|N|r
+3-7|Thánh Perpêtua và Fêlicita, tử đạo|N|r
+4-25|Thánh Máccô, tác giả Tin Mừng|K|r
+4-29|Thánh Catarina Siêna, trinh nữ, tiến sĩ|N
+5-2|Thánh Athanasiô, giám mục, tiến sĩ|N
+5-26|Thánh Philípphê Nêri, linh mục|N
+5-14|Thánh Matthia, Tông đồ|K|r
+6-1|Thánh Justinô, tử đạo|N|r
+6-3|Thánh Carôlô Lwanga và các bạn tử đạo|N|r
+6-5|Thánh Bônifaxiô, giám mục tử đạo|N|r
+6-11|Thánh Barnaba, Tông đồ|N|r
+6-21|Thánh Luy Gonzaga, tu sĩ|N
+6-28|Thánh Irênê, giám mục tử đạo|N|r
+7-3|Thánh Tôma, Tông đồ|K|r
+7-11|Thánh Bênêđictô, viện phụ|N
+7-15|Thánh Bônaventura, giám mục, tiến sĩ|N
+7-22|Thánh Maria Mađalêna|K
+7-25|Thánh Giacôbê, Tông đồ|K|r
+7-26|Thánh Gioakim và Anna, song thân Đức Mẹ|N
+7-29|Thánh Mátta|N
+7-31|Thánh Inhaxiô Loyola, linh mục|N
+8-1|Thánh Anphongsô Liguori, giám mục, tiến sĩ|N
+8-4|Thánh Gioan Maria Vianney, linh mục|N
+8-8|Thánh Đôminicô, linh mục|N
+8-10|Thánh Laurensô, phó tế tử đạo|K|r
+8-11|Thánh Clara, trinh nữ|N
+8-14|Thánh Maximilianô Kolbê, tử đạo|N|r
+8-20|Thánh Bênađô, viện phụ, tiến sĩ|N
+8-21|Thánh Piô X, giáo hoàng|N
+8-22|Đức Maria Nữ Vương|N
+8-24|Thánh Batôlômêô, Tông đồ|K|r
+8-27|Thánh Mônica|N
+8-28|Thánh Augustinô, giám mục, tiến sĩ|N
+8-29|Thánh Gioan Tẩy Giả bị trảm quyết|N|r
+9-3|Thánh Grêgôriô Cả, giáo hoàng, tiến sĩ|N
+9-13|Thánh Gioan Kim Khẩu, giám mục, tiến sĩ|N
+9-15|Đức Mẹ Sầu Bi|N
+9-16|Thánh Cornêliô và Cyprianô, tử đạo|N|r
+9-21|Thánh Mátthêu, Tông đồ, Tin Mừng|K|r
+9-23|Thánh Piô Pietrelcina, linh mục|N
+9-29|Các Tổng lãnh Thiên thần Micae, Gabriel, Raphael|K
+9-30|Thánh Giêrônimô, linh mục, tiến sĩ|N
+10-1|Thánh Têrêxa Hài Đồng Giêsu, tiến sĩ|K
+10-2|Các Thiên thần Bản mệnh|N
+10-15|Thánh Têrêxa Avila, tiến sĩ|N
+10-17|Thánh Inhaxiô Antiôkia, giám mục tử đạo|N|r
+10-28|Thánh Simon và Giuđa, Tông đồ|K|r
+11-4|Thánh Carôlô Borrômêô, giám mục|N
+11-9|Cung hiến Đền thờ Latêranô|K
+11-10|Thánh Lêô Cả, giáo hoàng, tiến sĩ|N
+11-11|Thánh Martinô Tours, giám mục|N
+11-12|Thánh Giôsaphát, giám mục tử đạo|N|r
+11-17|Thánh Elisabét Hungary, tu sĩ|N
+11-21|Đức Mẹ dâng mình vào đền thờ|N
+11-30|Thánh Anrê, Tông đồ|K|r
+12-3|Thánh Phanxicô Xaviê, linh mục|K
+12-7|Thánh Ambrôsiô, giám mục, tiến sĩ|N
+12-14|Thánh Gioan Thánh Giá, linh mục, tiến sĩ|N
+12-28|Các thánh Anh Hài, tử đạo|K|r`.split('\n').forEach(l=>{const[a,n,r,c]=l.split('|');G[a]=[n,r,c||'w']});
+const O={};`1-3|Kính Danh Rất Thánh Chúa Giêsu
+1-7|Thánh Raymunđô Penyafort
+1-13|Thánh Hilariô
+1-20|Thánh Fabianô;Thánh Sêbastianô
+1-22|Thánh Vinh Sơn, phó tế tử đạo
+1-27|Thánh Angela Merici
+2-3|Thánh Ansgariô;Thánh Blasiô
+2-11|Đức Mẹ Lộ Đức
+2-17|Bảy thánh lập dòng Tôi Tớ Đức Mẹ
+2-21|Thánh Phêrô Đamianô
+2-27|Thánh Grêgôriô Narek
+3-4|Thánh Casimirô
+3-9|Thánh Phanxica Rôma
+3-17|Thánh Patrick
+3-18|Thánh Cyrillô Giêrusalem
+3-23|Thánh Turibiô Mongrovejo
+4-13|Thánh Martinô I
+4-21|Thánh Anselmô
+4-23|Thánh Ađalbertô;Thánh Giorgiô
+4-24|Thánh Phiđêlê Sigmaringen
+4-28|Thánh Louis Montfort;Thánh Phêrô Chanel
+4-30|Thánh Piô V
+5-1|Thánh Giuse thợ
+5-12|Thánh Nêrêô và Achilê;Thánh Pancratiô
+5-13|Đức Mẹ Fatima
+5-18|Thánh Gioan I
+5-20|Thánh Bernardinô Siêna
+5-21|Thánh Christôphê Magallanes và các bạn
+5-22|Thánh Rita Cascia
+5-27|Thánh Augustinô Canterbury
+5-29|Thánh Phaolô VI
+6-2|Thánh Marcellinô và Phêrô
+6-6|Thánh Nôbectô
+6-9|Thánh Ephrem
+6-19|Thánh Rômualđô
+6-22|Thánh Gioan Fisher và Tôma More;Thánh Phaolinô Nola
+6-27|Thánh Cyrillô Alexandria
+6-30|Các thánh tử đạo tiên khởi Rôma
+7-4|Thánh Elisabet Bồ Đào Nha
+7-6|Thánh Maria Goretti
+7-9|Thánh Augustinô Triệu Vinh và các bạn
+7-13|Thánh Henricô
+7-14|Thánh Camillô Lellis
+7-16|Đức Mẹ núi Camêlô
+7-20|Thánh Apollinaris
+7-21|Thánh Laurensô Brindisi
+7-23|Thánh Brigitta
+7-24|Thánh Sarbêliô Makhlouf
+7-30|Thánh Phêrô Chrysologus
+8-5|Cung hiến thánh đường Đức Bà
+8-7|Thánh Gaetanô;Thánh Xittô II và các bạn
+8-12|Thánh Gioanna Phanxica Chantal
+8-13|Thánh Pontianô và Hippôlytô
+8-19|Thánh Gioan Eudes
+8-25|Thánh Giuse Calasanz;Thánh Louis
+9-5|Thánh Têrêxa Calcutta
+9-9|Thánh Phêrô Claver
+9-12|Danh Rất Thánh Đức Maria
+9-17|Thánh Rôbertô Bellarminô;Thánh Hildegard Bingen
+9-19|Thánh Januariô
+9-26|Thánh Cosma và Đamianô
+9-28|Thánh Laurensô Ruiz và các bạn;Thánh Wenceslao
+10-5|Thánh Faustina Kowalska
+10-6|Thánh Brunô
+10-9|Thánh Gioan Leonardi;Thánh Gioan Henricô Newman;Thánh Đionysiô và các bạn
+10-14|Thánh Callistô I
+10-16|Thánh Hedwig;Thánh Margarita Maria Alacoque
+10-19|Thánh Gioan Brébeuf, Isaac Jogues và các bạn;Thánh Phaolô Thánh Giá
+10-22|Thánh Gioan Phaolô II
+10-23|Thánh Gioan Capistranô
+10-24|Thánh Antôn Maria Claret
+11-3|Thánh Martinô Porres
+11-16|Thánh Ghêtrút;Thánh Margarita Scotland
+11-18|Cung hiến thánh đường Phêrô và Phaolô
+11-23|Thánh Columbanô;Thánh Clêmentê I
+11-25|Thánh Catarina Alexandria
+12-4|Thánh Gioan Damascênô
+12-9|Thánh Gioan Diego
+12-10|Đức Mẹ Lôrêtô
+12-11|Thánh Đamasô I
+12-12|Đức Mẹ Guadalupe
+12-21|Thánh Phêrô Canisiô
+12-23|Thánh Gioan Kêty
+12-29|Thánh Tôma Becket
+12-31|Thánh Silvestrô I`.split('\n').forEach(l=>{const[a,n]=l.split('|');O[a]=n.split(';')});
+const RK={L:'Lễ trọng',K:'Lễ kính',N:'Lễ nhớ',V:'Ngày của Việt Nam'};
+function info(dt){
+ const t=dt.getTime(),dow=dt.getDay(),sun=dow==0,e=sun?D:0;let s,c,w,title;
+ if(t<=S(1,11)){s='Mùa Giáng Sinh';c='w';title=sun?'Chúa nhật Mùa Giáng Sinh':DOW[dow]+' Mùa Giáng Sinh'}
+ else if(t<S(2,18)){s='Mùa Thường niên';c='g';w=1+Math.floor((t-S(1,12)+e)/(7*D));title=sun?`Chúa nhật thứ ${w} Thường niên`:`${DOW[dow]} tuần ${w} Thường niên`}
+ else if(t<S(4,2)){s='Mùa Chay';c='p';
+  if(t<S(2,22))title=DOW[dow]+' sau Lễ Tro';
+  else if(t>=S(3,30))title=DOW[dow]+' Tuần Thánh';
+  else{w=1+Math.floor((t-S(2,22))/(7*D));title=sun?`Chúa nhật thứ ${w} Mùa Chay`:`${DOW[dow]} tuần ${w} Mùa Chay`}}
+ else if(t<=S(4,4)){s='Tam nhật Vượt Qua';c='p';title=DOW[dow]}
+ else if(t<=S(5,24)){s='Mùa Phục Sinh';c='w';w=1+Math.floor((t-S(4,5))/(7*D));
+  title=t<=S(4,11)?(sun?'Chúa nhật Phục Sinh':DOW[dow]+' trong Tuần Bát nhật'):sun?`Chúa nhật thứ ${w} Phục Sinh`:`${DOW[dow]} tuần ${w} Phục Sinh`}
+ else if(t<=S(11,28)){s='Mùa Thường niên';c='g';w=8+Math.floor((t-S(5,25)+e)/(7*D));title=sun?`Chúa nhật thứ ${w} Thường niên`:`${DOW[dow]} tuần ${w} Thường niên`}
+ else if(t<=S(12,24)){s='Mùa Vọng';c='p';w=1+Math.floor((t-S(11,29))/(7*D));title=sun?`Chúa nhật thứ ${w} Mùa Vọng`:`${DOW[dow]} tuần ${w} Mùa Vọng`}
+ else{s='Mùa Giáng Sinh';c='w';title=DOW[dow]+' Mùa Giáng Sinh'}
+ const k=(dt.getMonth()+1)+'-'+dt.getDate(),sc=c,F0=F[k];let f=F0,opt=false;
+ if(!f&&!sun&&!(t>=S(3,29)&&t<=S(4,12))&&!(t>=S(12,17)&&t<=S(12,24))&&G[k]){f=G[k];opt=f[1]=='N'&&t>=S(2,18)&&t<S(4,2)}
+ let ol=[];
+ if(!f&&!sun&&!(t>=S(3,29)&&t<=S(4,12))){ol=(O[k]||[]).slice();if(dow==6&&s=='Mùa Thường niên'&&!ol.some(n=>n.startsWith('Danh Rất')))ol.push('Lễ Đức Mẹ ngày thứ Bảy')}
+ if(f){title=f[0]+(opt?' (nhớ tùy chọn)':'');if(!opt)c=f[2]}
+ const b=t>=S(11,29)?'B':'A';
+ const cycle=sun||(f&&f[1]=='L')?`Bài đọc Chúa nhật/lễ: Năm ${b}`:`Bài đọc ngày thường: Năm II`;
+ return{s,sc,c,title,cycle,rank:f?(opt?'Lễ nhớ tùy chọn':RK[f[1]]):(sun?'Chúa nhật':''),rk:f?f[1]:'',big:!!f&&(f[1]=='L'||f[1]=='K')||sun,short:f?f[0]:'',sun,ol,ev:sun?((F0&&(F0[1]=='L'||F0[1]=='K')&&!['3-15','3-29','4-5','5-24','11-29','12-13'].includes(k))?'rep':'sun'):(F0&&F0[1]=='L'?'sol':'')}}
+const MN=['Tháng 1','Tháng 2','Tháng 3','Tháng 4','Tháng 5','Tháng 6','Tháng 7','Tháng 8','Tháng 9','Tháng 10','Tháng 11','Tháng 12'];
+const now=new Date();let mon=now.getFullYear()==Y?now.getMonth():0,sel=now.getFullYear()==Y?new Date(now.getFullYear(),now.getMonth(),now.getDate()):new Date(Y,0,1);
+const $=id=>document.getElementById(id);
+function render(){
+ vw();
+ $('tabs').innerHTML=MN.map((n,i)=>`<button aria-pressed="${i==mon}" data-m="${i}">${n.replace('Tháng ','T')}</button>`).join('');
+ $('mt').textContent=MN[mon]+' năm '+Y;
+ const first=new Date(Y,mon,1),n=new Date(Y,mon+1,0).getDate();
+ const seasons=new Set();let h=DOW.map(d=>`<div class="dn">${d=='Chúa nhật'?'CN':'T'+(DOW.indexOf(d)+1)}</div>`).join('');
+ for(let i=0;i<first.getDay();i++)h+='<div class="day empty"></div>';
+ for(let d=1;d<=n;d++){const dt=new Date(Y,mon,d),x=info(dt);seasons.add(x.s);
+  const isT=dt.toDateString()==now.toDateString(),isS=dt.getTime()==sel.getTime();
+  h+=`<button class="day${x.sun?' sun':''}${x.big?' big':''}${isT?' today':''}" style="--c:${CV[x.c]}" aria-pressed="${isS}" data-d="${d}"><b>${d}</b><small>${x.short}</small></button>`}
+ $('grid').innerHTML=h;$('ms').textContent=[...seasons].join(' / ');
+ const x=info(sel);
+ $('detail').style.setProperty('--c',CV[x.c]);
+ $('detail').innerHTML=`<p class="d">${DOW[sel.getDay()]}, ${sel.getDate()}/${sel.getMonth()+1}/${Y}${now.toDateString()==sel.toDateString()?' (hôm nay)':''}</p><h3>${x.title}</h3><p><span class="chip" style="--c:${CV[x.c]}"></span>Màu áo lễ: ${CN[x.c]}${x.rank?' · '+x.rank:''}</p><p>${x.s}</p><p class="d">${x.cycle}</p>${extra(x)}`}
+$('tabs').onclick=e=>{const b=e.target.closest('button');if(b){mon=+b.dataset.m;render()}};
+$('grid').onclick=e=>{const b=e.target.closest('.day[data-d]');if(b){sel=new Date(Y,mon,+b.dataset.d);render()}};
+const KEYS=['2-18','3-29','4-3','4-5','5-24','6-12','8-15','11-1','11-22','11-29','12-8','12-25'];
+$('key').innerHTML=KEYS.map(k=>{const[m,d]=k.split('-');return`<button style="--c:${CV[F[k][2]]}" data-k="${k}">${F[k][0].replace(/ \(.*/,'')}<span>${DOW[new Date(Y,m-1,d).getDay()]}, ${d}/${m}</span></button>`}).join('');
+$('key').onclick=e=>{const b=e.target.closest('button');if(!b)return;const[m,d]=b.dataset.k.split('-');mon=m-1;sel=new Date(Y,m-1,+d);render();window.scrollTo({top:0,behavior:'smooth'})};
+let view='m';
+const pad=n=>String(n).padStart(2,'0'),fmt=d=>d.getDate()+'/'+(d.getMonth()+1);
+const go=t=>{sel=new Date(+t);mon=sel.getMonth();view='m';render();window.scrollTo({top:0,behavior:'smooth'})};
+function extra(x){const m=pad(sel.getMonth()+1),d=pad(sel.getDate()),e=new Date(Y,sel.getMonth(),sel.getDate()+1);
+ const a=Y+m+d,b=e.getFullYear()+pad(e.getMonth()+1)+pad(e.getDate());
+ const o=x.ol.length?`<p class="d">Lễ nhớ tùy ý${x.s=='Mùa Chay'?' (Mùa Chay: chỉ tưởng nhớ)':''}: ${x.ol.join('; ')}</p>`:'';
+ return o+`<p><a href="https://bible.usccb.org/bible/readings/${m}${d}${String(Y).slice(2)}.cfm" target="_blank" rel="noopener">Bài đọc Thánh Lễ ngày này (USCCB, tiếng Anh)</a></p><p><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(x.title)}&dates=${a}/${b}" target="_blank" rel="noopener">Thêm vào Google Calendar</a></p>`}
+function vw(){$('mv').hidden=view!='m';$('sv').hidden=view!='s';document.querySelectorAll('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v==view));if(view=='s'&&!$('sv').innerHTML)seasons()}
+function seasons(){const runs=[];
+ for(let d=new Date(Y,0,1);d.getFullYear()==Y;d=new Date(Y,d.getMonth(),d.getDate()+1)){const x=info(d),l=runs[runs.length-1];
+  if(l&&l.s==x.s)l.days.push([new Date(d),x]);else runs.push({s:x.s,c:x.sc,days:[[new Date(d),x]]})}
+ $('sv').innerHTML=runs.map(r=>{const a=r.days[0][0],b=r.days[r.days.length-1][0];
+  const it=r.days.filter(([d,x])=>x.sun||x.rk=='L'||x.rk=='K').map(([d,x])=>`<button style="--c:${CV[x.c]}" data-t="${d.getTime()}">${x.title}<span>${DOW[d.getDay()]}, ${fmt(d)}</span></button>`).join('');
+  return `<details class="sea" style="--c:${CV[r.c]}"><summary><b>${r.s}</b><span>${fmt(a)} – ${fmt(b)}${b.getMonth()==11&&b.getDate()==31&&r.s=='Mùa Giáng Sinh'?' (tiếp tục đến 10/1/2027)':''} · ${r.days.length} ngày</span></summary><div class="key">${it}</div></details>`}).join('')}
+const ST={sun:true,sol:true,rep:true,lead:1};
+try{Object.assign(ST,JSON.parse(localStorage.getItem('lpv')||'{}'))}catch(e){}
+const save=()=>{try{localStorage.setItem('lpv',JSON.stringify(ST))}catch(e){}};
+const EV={sun:'Chúa nhật',sol:'Lễ trọng',rep:'Lễ thay Chúa nhật'};
+function upc(n){const o=[];for(let i=0;i<=n;i++){const dt=new Date(now.getFullYear(),now.getMonth(),now.getDate()+i);if(dt.getFullYear()!=Y)break;const x=info(dt);if(x.ev&&ST[x.ev])o.push({i,dt,x})}return o}
+function remind(){const p=typeof Notification!='undefined'?Notification.permission:'none';
+ const L=upc(14).map(({i,dt,x})=>`<button data-t="${dt.getTime()}" style="--c:${CV[x.c]}">${x.title}<span>${EV[x.ev]} · ${i==0?'hôm nay':i==1?'ngày mai':'còn '+i+' ngày'} (${fmt(dt)})</span></button>`).join('')||'<p class="d">Không có ngày nào trong 14 ngày tới.</p>';
+ $('rem').innerHTML=`<h2 class="k">Nhắc nhở 14 ngày tới</h2><div class="opts"><label><input type="checkbox" data-k="sun"${ST.sun?' checked':''}> Chúa nhật</label><label><input type="checkbox" data-k="sol"${ST.sol?' checked':''}> Lễ trọng</label><label><input type="checkbox" data-k="rep"${ST.rep?' checked':''}> Lễ thay Chúa nhật</label><label>Báo trước <select id="lead">${[0,1,3].map(v=>`<option value="${v}"${ST.lead==v?' selected':''}>${v?v+' ngày':'đúng ngày'}</option>`).join('')}</select></label><button id="nb">${p=='granted'?'Đã bật thông báo':'Bật thông báo trình duyệt'}</button></div><div class="key">${L}</div><p class="d nt">Thông báo trình duyệt chỉ hiện khi trang đang mở. Muốn được nhắc cả khi đã đóng trang, hãy dùng liên kết Google Calendar trong phần chi tiết từng ngày.</p>`}
+function notif(){try{if(Notification.permission!='granted')return;upc(ST.lead).filter(o=>o.i==ST.lead).forEach(({dt,x})=>{const k='lpv-n-'+dt.getTime()+'-'+ST.lead;if(localStorage.getItem(k))return;localStorage.setItem(k,1);new Notification(x.title,{body:EV[x.ev]+(ST.lead?' · '+fmt(dt):' · hôm nay')})})}catch(e){}}
+$('rem').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+ if(b.id=='nb'){try{Notification.requestPermission().then(()=>{remind();notif()})}catch(er){alert('Trình duyệt hoặc khung xem này không hỗ trợ thông báo.')}return}
+ if(b.dataset.t)go(b.dataset.t)};
+$('rem').onchange=e=>{const t=e.target;if(t.dataset.k)ST[t.dataset.k]=t.checked;if(t.id=='lead')ST.lead=+t.value;save();remind();notif()};
+$('sv').onclick=e=>{const b=e.target.closest('button[data-t]');if(b)go(b.dataset.t)};
+document.querySelector('.seg').onclick=e=>{const b=e.target.closest('button');if(b){view=b.dataset.v;render()}};
+remind();notif();setInterval(notif,36e5);
+render();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}))}</script>
+</body>
+</html>
